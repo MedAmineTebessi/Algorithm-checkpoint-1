@@ -1,0 +1,62 @@
+
+ALGORITHM Checkpoint1
+VAR
+ch : STRING
+i : INTEGER
+j : INTEGER
+counter1 : INTEGER
+counter2 : INTEGER
+counter3 : INTEGER
+BEGIN
+REPEAT
+    write("Give me a string :")
+    read (ch)
+UNTIL (ch[ch.length]="." AND verif(ch)=True )
+counter1 := 0
+counter2 := 0
+counter3 := 0
+
+FOR i FROM 0 TO ch.length -1 STEP 1  DO
+    counter1+ := 1 
+END_FOR
+
+FOR i FROM 0 TO ch.length-1 STEP 1  DO
+    IF (ch[i]=" ") THEN
+        counter2+ := 1
+    END_IF
+END_FOR
+
+FOR i FROM 0 TO ch.length-1 STEP step  DO
+    IF (ch[i] in [a, e, i, o, u, y]) THEN
+        counter3+ := 1
+    END_IF
+END_FOR
+
+
+write("The length of the sentence = ", counter1)
+write("The number of words in the sentence =", counter2)
+write("The number of vowels in the sentence =", counter3)
+
+END
+
+FUNCTION verif(ch) : boolean
+VAR
+    res : boolean
+BEGIN
+res:=True
+    IF (ch[ch.length]<>".") THEN
+        res := False
+    ELSE 
+        FOR i FROM 0 TO ch.length-1 STEP 1  DO
+            IF (ch[i] NOT IN [A,Z] or ch[i] NOT IN [a,z] or ch[i]<>"." or ch[i]<>" " ) THEN
+                res := False
+        END_FOR
+    END_IF
+
+    return res
+END
+
+
+
+
+
